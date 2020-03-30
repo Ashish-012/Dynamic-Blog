@@ -36,48 +36,7 @@
 
     <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">
-                <span data-feather="home"></span>
-                Dashboard <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <span data-feather="file"></span>
-                Orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <span data-feather="shopping-cart"></span>
-                Products
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Customers
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2"></span>
-                Reports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Integrations
-                </a>
-            </li>
-            </ul>
-        </div>
-        </nav>
+        <?php include_once "nav.php"; ?>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -88,7 +47,7 @@
             <form method='post'>
                 <div class="form-group">
                     
-                    Name: <input type="name" name='author_name' class="form-control" id="email " value='<?php echo $_SESSION['author_name'];?>' placeholder='Enter Password'>
+                    Name: <input type="name" name='author_name' class="form-control" id="email " value='<?php echo $_SESSION['author_name'];?>' placeholder='Enter Name'>
                 </div>
                 <div class="form-group">
                     
