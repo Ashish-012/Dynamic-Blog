@@ -123,7 +123,7 @@
                                     exit();
                                 }
                                 else{
-                                    header("Location: posts.php?message=Error!");
+                                    header("Location: newposts.php?message=Error!");
                                     exit();
                                 }
                             }
