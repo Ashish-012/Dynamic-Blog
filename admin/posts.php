@@ -2,7 +2,7 @@
     include_once '../includes/connection.php';
     session_start();
 
-    if(isset($_SESSION['author_id'])){
+    if(isset($_SESSION['author_role'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +45,56 @@
         </div>
         <h1>All Posts</h1>
         <a href='newpost.php'><button class='btn btn-info'>Add post</button></a>
-        
+        <hr>
+            <table class='table'>
+                <thead>
+                    <tr>
+                    <th scope="col">Post Id</th>
+                    <th scope="col">Post Image</th>
+                    <th scope="col">Post Author</th>
+                    <th scope="col">Post Title</th>
+                    
+                    <?php if($_SESSION['author_role']=='admin'){?>
+                    <th scope="col">Action</th>
+                    <?php }?>
+                    </tr>
+                </thead>
+                <?php
+                    $sql = 'SELECT * FROM `post` ORDER BY post_id DESC';
+                    $result = mysqli_query($conn, $sql);
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        $post_author= $row['post_author'];
+                        $post_image= $row['post_image'];
+                        $post_id= $row['post_id'];
+                        $post_content= $row['post_content'];
+                        $post_title= $row['post_title'];
+                        
+                        $sql_author = "SELECT * FROM `author` WHERE author_id='$post_author'";
+                        $result_name = mysqli_query($conn, $sql_author);
+                        while($row_auth= mysqli_fetch_assoc($result_name)){
+                            $post_author_name = $row_auth['author_name'];
+                        
+                ?>
+                <tbody>
+                    <tr>
+                    <th scope="row"><?php echo $post_id?></th>   
+                    <td><img src='../<?php echo $post_image?> ' width ='60px' height ='60px'; ></td>
+                    <td><?php echo $post_author_name?></td>
+                    <td><?php echo $post_title?></td>
+                    
+                    <?php if($_SESSION['author_role']=="admin"){?>
+                    <td>
+                        <a href='editpost.php?id=<?php echo $post_id;?>'><button type="button" class="btn btn-secondary">Edit</button></a>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                    <?php }?>
+                    </tr>
+                <?php }}?>
+                </tbody>
+            </table>
         </main>
+        
     </div>
     </div>
 
