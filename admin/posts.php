@@ -15,14 +15,7 @@
 <body>
     
     <!--For any type of error message-->
-    <?php
-        if(isset($_GET['message'])){
-            $msg= $_GET['message'];
-            echo'<div class="alert alert-danger" role="alert">
-                 '.$msg.'   
-                </div>';
-        }
-    ?>
+    
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
@@ -37,14 +30,24 @@
     <div class="container-fluid">
     <div class="row">
         <?php include_once "nav.php"; ?>
+        
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Posts</h1>
             
         </div>
+        <?php
+            if(isset($_GET['message'])){
+                $msg= $_GET['message'];
+                echo'<div class="alert alert-danger" role="alert">
+                     '.$msg.'   
+                     </div>';
+            }
+        ?>
         <h1>All Posts</h1>
         <a href='newpost.php'><button class='btn btn-info'>Add post</button></a>
+        
         <hr>
             <table class='table'>
                 <thead>
@@ -86,7 +89,7 @@
                     <?php if($_SESSION['author_role']=="admin"){?>
                     <td>
                         <a href='editpost.php?id=<?php echo $post_id;?>'><button type="button" class="btn btn-secondary">Edit</button></a>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <a href='deletepost.php?id=<?php echo $post_id?>'><button type="button" onclick=" return confirm('Are you sure?');" class="btn btn-danger">Delete</button></a>
                     </td>
                     <?php }?>
                     </tr>
