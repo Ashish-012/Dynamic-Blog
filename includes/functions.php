@@ -10,4 +10,24 @@
               </div>';
     }
 
+    function getAuthorName($id){
+        global $conn;
+        $sql = "SELECT * FROM author where author_id = '$id'";
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $author_name = $row['author_name'];
+        }
+        echo $author_name;
+    }
+
+    function getCategory($id){
+        global $conn;
+        $sql = "SELECT * FROM category where category_id = '$id'";
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $name = $row['category_name'];
+            echo $name;
+        }
+        
+    }
 ?>
