@@ -40,7 +40,7 @@
     ?>
 
     <div class='container'>
-        <center><h1> Showing all posts with category: <?php getCategory($id); ?></h1></center>
+        <center><h1 style='background-color:grey; padding-top: 2%; padding-bottom:2%;'> Showing all posts with category: <?php getCategory($id); ?></h1></center>
         <div class='card-columns'>
             <?php
                 // get the data from post table and show it here
