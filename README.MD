@@ -34,6 +34,9 @@ Admins can
    - Delete a post
 
 ![Add post](uploads/admin_view.JPG)
+* Add another category of posts
+
+![Add category](uploads/add_category.JPG)
     
 
 I will edit this readme as i add more things to the site and a live version of the website will also be avaialble soon!
