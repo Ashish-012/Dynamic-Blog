@@ -14,7 +14,7 @@ By default user has author role. An author can
 
 * Add a post
 
-![Add post](uploads/add_posts.PNG)
+![Add post](uploads/add_posts.JPG)
     
 * See all posts
 
