@@ -42,7 +42,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $post_title?></h5>
                     <h6 class="card-subtitle mb-2 text-muted"><?php echo $post_author_name?></h6>
-                    <p class="card-text"><?php echo substr($post_content,0,80)."...";?></p>
+                    <p class="card-text"><?php echo substr(strip_tags($post_content),0,80)."...";?></p>
                 </div>
                    <center> <a href="post.php?id=<?php echo $post_id;?>" class="btn btn-primary">Read More</a></center>
             </div>
