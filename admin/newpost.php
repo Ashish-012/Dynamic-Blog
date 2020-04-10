@@ -155,8 +155,7 @@
     <script>
         tinymce.init({
         selector: 'textarea',
-        plugins: 'casechange lists checklist pageembed table',
-        toolbar: 'casechange checklist pageembed table',
+        plugins: 'casechange lists checklist'
         });
     </script>
 </body>
