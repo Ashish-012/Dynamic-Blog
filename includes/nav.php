@@ -8,7 +8,7 @@ include_once "includes/connection.php";
 		  </button>
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav mx-auto">
 			  <li class="nav-item">
 				<a class="nav-link" href="index.php">Home</a>
 			  </li>
@@ -28,12 +28,18 @@ include_once "includes/connection.php";
 						$category_name = $row['category_name'];
 				?>
 						<a class="dropdown-item" href="category.php?id=<?php echo $category_id; ?>"><?php echo $category_name; ?></a>
+						
 				<?php
 					}
 				?>
+				
 				</div>
 			  </li>
 			</ul>
+			<form action='search.php' class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" name='search' type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
 			
 		  </div>
 		</nav>
