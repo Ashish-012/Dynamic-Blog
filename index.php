@@ -17,11 +17,26 @@
     ?>
 
     <div class='container'>
+        <?php
+        // adding pagination 
+            $sqlpage = "SELECT * FROM post";
+            $requestpage = mysqli_query($conn, $sqlpage);
+            $numposts = mysqli_num_rows($requestpage);
+            $numpages = ceil($numposts/6);
+            if(isset($_GET['page'])){
+                $page = $_GET['page'];
+                $start = ($page*6) - 6;
+                $sql = "SELECT * FROM `post` ORDER BY post_id DESC LIMIT $start, 6;";
+            }
+            else{
+                $sql = "SELECT * FROM `post` ORDER BY post_id DESC LIMIT 0, 6;";
+            }
+        ?>
         <div class='card-columns'>
             <?php
                 // get the data from post table and show it here
 
-                $sql = "SELECT * FROM `post` ORDER BY post_id DESC;";
+                
                 $result = mysqli_query($conn, $sql);
 
                 while($row = mysqli_fetch_assoc($result)){
@@ -47,8 +62,17 @@
                    <center> <a href="post.php?id=<?php echo $post_id;?>" class="btn btn-primary">Read More</a></center>
             </div>
             <?php }}?>
-        </div>
-    </div>
+        </div><br>
+        <?php
+            echo "<center>";
+            for($i=1;$i<=$numpages;$i++){
+                ?>
+                <a href='?page=<?php echo $i?>'><button class='btn btn-info'><?php echo $i?></button></a> &nbsp;
+                <?php
+            }
+            echo "</center>";
+        ?>
+    </div><br>
     
 
 
