@@ -18,7 +18,7 @@
     
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">MyDynamicSite</a>
     
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
@@ -45,9 +45,10 @@
                      </div>';
             }
         ?>
-        <h1>All Posts</h1>
-        <a href='newpost.php'><button class='btn btn-info'>Add post</button></a>
         
+        <a href='newpost.php'><button class='btn btn-info' style='margin-bottom:3%;'>Add post</button></a>
+        <h1>All Posts</h1>
+
         <hr>
             <table class='table'>
                 <thead>

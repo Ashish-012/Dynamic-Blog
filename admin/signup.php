@@ -29,8 +29,10 @@
 
             <input type="password" name='author_password' id="inputPassword" class="form-control" placeholder="Enter Password" required autofocus>
             
-            <button class="btn btn-lg btn-primary btn-block" name='submit' type="submit" style='margin-top:40px;'>Sign up</button>
+            <button class="btn btn-lg btn-primary btn-block" name='submit' type="submit" style='margin-top:20px; margin-bottom:20px;'>Sign up</button>
         </form>
+        <center><h1 class="h3 mb-3 font-weight-normal">OR</h1></center>
+        <a href='login.php'><button class="btn btn-lg btn-warning btn-block">Login</button></a>
     </div>
 
     <?php 
