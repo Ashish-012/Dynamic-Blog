@@ -5,7 +5,7 @@
         echo '<div class="jumbotron jumbotron-fluid">
                 <div class="container">
                 <h1 class="display-4">My Blog</h1>
-                <p class="lead">Welcome to my website! Here are some posts.</p>
+                <p class="lead">Welcome to my website! Here are some posts. If you wish to add a post go to Dashboard.</p>
                 </div>
               </div>';
     }
