@@ -13,7 +13,7 @@ include_once "includes/connection.php";
 				<a class="nav-link" href="index.php">Home</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">Link</a>
+				<a class="nav-link" href="admin/index.php">Dashboard</a>
 			  </li>
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

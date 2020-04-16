@@ -11,7 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="posts.php">
                 <span data-feather="file"></span>
-                    All Posts
+                    Add Post
                 </a>
             </li>
             <?php if(isset($_SESSION['author_role'])){
@@ -26,6 +26,12 @@
             <?php        
                 }
             }?>
+            <li class="nav-item">
+                <a class="nav-link" href="../index.php">
+                <span data-feather="file"></span>
+                    Home
+                </a>
+            </li>
             </ul>
     </div>
 </nav>
