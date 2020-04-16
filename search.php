@@ -49,7 +49,7 @@
                     ?>
         
                     <center>
-                        <h2 style='background-color: #a9a69f; padding-top:20px; padding-bottom:20px;'>
+                        <h2 style='background-color: lightgray; padding-top:20px; padding-bottom:20px;'>
                             Showing All Results for <span style='color:#f6393e;'>'<?php echo$search;?>'</span>
                         </h2>
                     </center>
