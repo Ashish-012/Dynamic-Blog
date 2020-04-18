@@ -2,12 +2,14 @@
     include_once '../includes/connection.php';
     session_start();
     if(!isset($_GET['id'])){
-        header("Location: index.php");
+        
+        echo '<script> window.location = "index.php"; </script>';
         exit();
     }
     else{
         if(!isset($_SESSION['author_role'])){
-            header('Location: login.php?message=Please+Login+First');
+            
+            echo '<script> window.location = "login.php?message=Please+Login+First"; </script>';
             exit();
         }
         else{
@@ -20,16 +22,19 @@
                 $sqlCheck = "SELECT * FROM post WHERE post_id ='$id' ";
                 $result = mysqli_query($conn, $sqlCheck);
                 if(mysqli_num_rows($result)<=0){
-                    header("Location: posts.php?message=No+Such+Post+Exist");
+                    
+                    echo '<script> window.location = "posts.php?message=No+Such+Post+Exist"; </script>';
                     exit();
                 }
                 $sql = "DELETE FROM post WHERE post_id ='$id'";
                 if(mysqli_query($conn, $sql)){
-                    header("Location: posts.php?message=Successfully+Deleted+Post");
+                    
+                    echo '<script> window.location = "posts.php?message=Successfully+Deleted+Post"; </script>';
                     exit();
                 }
                 else{
-                    header("Location: posts.php?message=Could+Not+Delete+Your+Post");
+                    
+                    echo '<script> window.location = "posts.php?message=Could+Not+Delete+Your+Post"; </script>';
                     exit();
                 }
 

@@ -131,15 +131,18 @@
                                     }
                                 }
                                 else{
-                                    echo "File too big to upload";
+                                    
+                                    echo '<script> window.location = "posts.php?message=File+too+big+to+upload"; </script>';
                                 }
                             }
                             else{
-                                echo "Error uploading your file!";
+                                
+                                echo '<script> window.location = "posts.php?message=Error+uploading+your+file!"; </script>';
                             }
                         }
                         else{
-                            echo "You have uploaded wrong file!";
+                            
+                            echo '<script> window.location = "posts.php?message=You+have+uploaded+wrong+file!"; </script>';
                         }
                     }
                     else{
@@ -172,13 +175,16 @@
 </html>
 <?php
         }else{
-            header('Location: index.php');
+            
+            echo "<script>window.location='index.php'</script>";
         }
     }
     else{
-            header('Location: index.php');
+            
+            echo "<script>window.location='index.php'</script>";
         }
 }else{
-    header("Location: login.php?message=Please+Login+first!");
+    
+    echo "<script>window.location='login.php?message=Please+Login+first!'</script>";
 }
 ?>

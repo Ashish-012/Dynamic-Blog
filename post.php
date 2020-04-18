@@ -2,13 +2,15 @@
     include_once "includes/connection.php";
     include_once "includes/functions.php";
     if(!isset($_GET['id'])){
-        header("Location: index.php");
+        
+        echo "<script>window.location='index.php'</script>";
         exit();
     }
     else{   
         $id = mysqli_real_escape_string($conn, $_GET['id']);
         if(!is_numeric($id)){
-            header("Location: index.php");
+            
+            echo "<script>window.location='index.php'</script>";
             exit();
         }
         else if(is_numeric($id)){
@@ -16,7 +18,8 @@
             $result = mysqli_query($conn, $sql);
             // if no such post exists
             if(mysqli_num_rows($result)<=0){
-                header("Location: index.php?noresult");
+                
+                echo "<script>window.location='index.php?noresult'</script>";
                 exit();
             }
             else if(mysqli_num_rows($result)>0){

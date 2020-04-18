@@ -2,5 +2,6 @@
     session_start();
     session_unset();
     session_destroy();
-    header("Location: login.php?message=Successfully+Logged+out");
+    
+    echo "<script>window.location='login.php?message=Successfully+Logged+out'</script>";
 ?>

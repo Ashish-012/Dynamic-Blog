@@ -2,7 +2,8 @@
     include_once "includes/connection.php";
     include_once "includes/functions.php";
     if(!isset($_GET['search'])){
-        header('Location: index.php');
+        
+        echo "<script>window.location='index.php'</script>";
         exit();
     }
     else if(isset($_GET['search'])){

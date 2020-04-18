@@ -2,13 +2,15 @@
     include_once "includes/connection.php";
     include_once "includes/functions.php";
     if(!isset($_GET['id'])){
-        header("Location: index.php");
+        
+        echo "<script>window.location='index.php'</script>";
         exit();
     }
     else{   
         $id = mysqli_real_escape_string($conn, $_GET['id']);
         if(!is_numeric($id)){
-            header("Location: index.php");
+            
+            echo "<script>window.location='index.php'</script>";
             exit();
         }
         else if(is_numeric($id)){
@@ -16,7 +18,8 @@
             $result = mysqli_query($conn, $sql);
             // if no such post exists
             if(mysqli_num_rows($result)<=0){
-                header("Location: index.php?noresult");
+                
+                echo "<script>window.location='index.php?noresult'</script>";
                 exit();
             }
             else {
@@ -45,7 +48,7 @@
             <?php
                 // get the data from post table and show it here
 
-                $sql = "SELECT * FROM `post` WHERE post_id='$id' ORDER BY post_id DESC;";
+                $sql = "SELECT * FROM `post` WHERE post_category='$id' ORDER BY post_id DESC";
                 $result = mysqli_query($conn, $sql);
 
                 while($row = mysqli_fetch_assoc($result)){

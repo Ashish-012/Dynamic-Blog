@@ -45,12 +45,14 @@
             
             // checking for empty fields
             if(empty($author_email) OR empty($author_password)){
-                header("Location: login.php?message=Empty+Fields");
+                
+                echo "<script>window.location='login.php?message=Empty+Fields'</script>";
                 exit();
             }
 
             if(!filter_var($author_email,FILTER_VALIDATE_EMAIL)){
-                header("Location: login.php?message=Please+Enter+Valid+Email");
+                
+                echo "<script>window.location='login.php?message=Please+Enter+Valid+Email'</script>";
                 exit();
             }
             else{
@@ -61,7 +63,8 @@
                 // if email does not exist
 
                 if(mysqli_num_rows($result)<=0){
-                    header("Location: login.php?message=Email+or+Password+is+incorrect");
+                    
+                    echo "<script>window.location='login.php?message=Email+or+Password+is+incorrect'</script>";
                     exit();
                 }
 
@@ -69,7 +72,8 @@
                 else{
                     while($row = mysqli_fetch_assoc($result)){
                         if(!password_verify($author_password,$row['author_password'])){
-                            header("Location: login.php?message=Incorrect+Password");
+                            
+                            echo "<script>window.location='Location: login.php?message=Incorrect+Password'</script>";
                             exit();
                         }
                         // if email and password is correct send him to the main page
@@ -79,7 +83,8 @@
                             $_SESSION['author_name'] = $row['author_name']; 
                             $_SESSION['author_bio'] = $row['author_bio']; 
                             $_SESSION['author_role'] = $row['author_role'];
-                            header("Location: index.php"); 
+                            
+                            echo "<script>window.location='Location: index.php'</script>";
                             exit();
                         }
                     }

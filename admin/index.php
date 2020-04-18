@@ -73,11 +73,13 @@
 
                     if(empty($author_name) OR empty($author_email) OR empty($author_bio)){
                         echo "Empty Fields!"; 
+                        echo "<script>window.location='index.php?message=Empty+Fields!'</script>";
                     }
                     else{
                         // checking if new email entered is valid or not
                         if(!filter_var($author_email,FILTER_VALIDATE_EMAIL)){
-                            echo "Please enter valid email";
+                            
+                            echo "<script>window.location='index.php?message=Please+enter+valid+email'</script>";
                         }
                         else{
                             // if user wants to change the password
@@ -90,10 +92,12 @@
                                     $_SESSION['author_email']=$author_email;
                                     $_SESSION['author_bio']=$author_bio;
 
-                                    header("Location: index.php?message=Changes+Updated");
+                                    
+                                    echo "<script>window.location='index.php?message=Changes+Updated'</script>";
                                 }
                                 else{
-                                    echo "Error";
+                                    
+                                    echo "<script>window.location='index.php?Error'</script>";
                                 }
                             }
                             else{
@@ -106,7 +110,8 @@
                                 if(mysqli_query($conn,$sql)){
                                     session_unset();
                                     session_destroy();
-                                    header("Location: login.php?message=Changes+Updated+Login+Again+Please!");
+                                    
+                                    echo "<script>window.location='login.php?message=Changes+Updated+Login+Again+Please!'</script>";
                                 }
                                 else{
                                     echo "Some error occured";

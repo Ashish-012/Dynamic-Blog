@@ -43,13 +43,15 @@
             
             // checking for empty fields
             if(empty($author_name) OR empty($author_email) OR empty($author_password)){
-                header("Location: signup.php?message=Empty+Fields");
+                
+                echo "<script>window.location='signup.php?message=Empty+Fields'</script>";
                 exit();
             }
 
 
             if(!filter_var($author_email,FILTER_VALIDATE_EMAIL)){
-                header("Location: signup.php?message=Pleas+Enter+Valid+Email");
+               
+                echo "<script>window.location='signup.php?message=Pleas+Enter+Valid+Email'</script>";
                 exit();
             }
             else{
@@ -57,7 +59,8 @@
 
                 $result= mysqli_query($conn,$sql2);
                 if(mysqli_num_rows($result)>0){
-                    header("Location: signup.php?message=Email+Already+Exists");
+                    
+                    echo "<script>window.location='signup.php?message=Email+Already+Exists'</script>";
                     exit();
                 }
                 else{
@@ -68,11 +71,13 @@
                     $sql = "INSERT INTO `author` (`author_name`,`author_email`,`author_password`,`author_bio`,`author_role`) VALUES ('$author_name','$author_email','$hash','Enter Bio','author')";
 
                     if(mysqli_query($conn,$sql)){
-                        header("Location: signup.php?message=SuccessFully+Registered");
+                        
+                        echo "<script>window.location='signup.php?message=SuccessFully+Registered'</script>";
                         exit();
                     }
                     else{
-                        header("Location: signup.php?message=Registration+Failed");
+                        
+                        echo "<script>window.location='signup.php?message=Registration+Failed'</script>";
                         exit();
                     }
                 }

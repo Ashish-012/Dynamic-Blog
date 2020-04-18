@@ -111,6 +111,8 @@
 <?php
 
 }else{
-    header("Location: login.php?message=Please+Login+first!");
+    
+    echo "<script>window.location='login.php?message=Please+Login+first!'</script>";
+    
 }
 ?>
